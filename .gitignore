@@ -1,0 +1,52 @@
+<<<<<<< HEAD
+# Visual Studio Files
+*/.vs
+*/.DS_Store
+ADS/SearchingAlgos/BinarySearch/binarysearch.dSYM
+ADS/SearchingAlgos/JumpSearch/jumpsearch.dSYM
+ADS/SearchingAlgos/LinearSearch/linearsearch.dSYM
+ADS/Arrays/arrays.dSYM
+*/.user
+ADS/LeetCode/MajorityElement/*/
+ADS/LeetCode/MergeSortedArray/*/
+ADS/LeetCode/RemoveDuplicates2/*/
+ADS/LeetCode/RemoveDuplicatesFromSortedArray/*/
+ADS/LeetCode/RemoveElement/*/
+ADS/LeetCode/RotateArray/*/
+OOP/Inheritance/*/
+OOP/Polymorphism/*/
+OOP/PointersReferences/*/
+=======
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+>>>>>>> 5af6b6c44106d74da24418be0be452d611d36fea
