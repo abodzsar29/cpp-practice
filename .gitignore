@@ -13,9 +13,16 @@ ADS/LeetCode/RemoveDuplicates2/*/
 ADS/LeetCode/RemoveDuplicatesFromSortedArray/*/
 ADS/LeetCode/RemoveElement/*/
 ADS/LeetCode/RotateArray/*/
+ADS/LeetCode/BestTimetoBuySellStock/*/
+ADS/LeetCode/BestTimetoBuySellStock/BestTimetoBuySellStock.vcxproj.user
 OOP/Inheritance/*/
 OOP/Polymorphism/*/
 OOP/PointersReferences/*/
+PointersReferences/*/
+*/.vcxproj.user
+ADS/LinkedLists/*/
+ADS/LinkedLists/LinkedLists.vcxproj.user
+
 =======
 # Prerequisites
 *.d
