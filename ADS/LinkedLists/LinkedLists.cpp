@@ -8,19 +8,56 @@ public:
 };
 
 // Outputting the data attribute of the Node
-void iteratorForList(Node* n) {
+void iterate(Node* n) {
 	while (n != nullptr) {
 		cout << n->data << " ";
 		n = n->next;
 	}
 }
 
-//Push Node to the start of the list
-void push(Node** head_ref, int new_data) {
-	Node* new_node = new Node();
+//Push Node to the start of the list as head
+static void pushAsHead(Node*& head, int val) {
+	Node* newNode = new Node();
+	newNode->data = val;
+	newNode->next = head;
+	head = newNode;
+}
+
+//Push Node to the end of the list as tail
+static void pushToTail(Node*& head, int val) {
+	Node* newNode = new Node();
+	newNode->data = val;
+
+	// If the list is empty, set the new node as the head
+	if (head == nullptr) {
+		head = newNode;
+		return;
+	}
+
+	// Traverse to the end of the list
+	Node* temp = head;
+	while (temp->next != nullptr) {
+		temp = temp->next;
+	}
+
+	// Link the new node to the last node
+	temp->next = newNode;
+}
+
+// Inserting after a specific Node
+static void insertAfter(Node* prev_node, int new_data) {
+	if (prev_node == nullptr) {
+		std::cout << "The given previous node cannot be NULL" << std::endl;
+		return;
+	}
+
+	Node* new_node = new Node();  // Create a new node with the given value
 	new_node->data = new_data;
-	new_node->next = (*head_ref);
-	(*head_ref) = new_node;
+
+	// Adjust the pointers to insert the new node
+	new_node->next = prev_node->next;
+	prev_node->next = new_node;
+
 }
 
 int main() {
@@ -37,11 +74,15 @@ int main() {
 	third->next = nullptr;
 
 	// Outputting the data attribute of the Node
-	iteratorForList(head);
+	iterate(head);
 	cout << endl;
 	// Pushing to the start of the list
-	push(&head, 11);
-	iteratorForList(head);
+	pushAsHead(head, 11);
+	iterate(head);
+	cout << endl;
+	pushToTail(head, 99);
+	iterate(head);
+	
 
 	// Cleaning up memory
 	while (head != nullptr) {
