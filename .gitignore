@@ -24,6 +24,8 @@ PointersReferences/*/
 */.vcxproj.user
 ADS/LinkedLists/*/
 ADS/LinkedLists/LinkedLists.vcxproj.user
+TemplateMetaProg/*/
+TemplateMetaProg/TemplateMetaProg.vcxproj.user
 
 =======
 # Prerequisites
