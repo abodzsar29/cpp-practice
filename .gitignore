@@ -1,12 +1,15 @@
 <<<<<<< HEAD
 # Visual Studio Files
 */.vs
+*/.vscode
 */.DS_Store
+*/.user
+
+#Development Files
 ADS/SearchingAlgos/BinarySearch/binarysearch.dSYM
 ADS/SearchingAlgos/JumpSearch/jumpsearch.dSYM
 ADS/SearchingAlgos/LinearSearch/linearsearch.dSYM
 ADS/Arrays/arrays.dSYM
-*/.user
 ADS/LeetCode/MajorityElement/*/
 ADS/LeetCode/MergeSortedArray/*/
 ADS/LeetCode/RemoveDuplicates2/*/
@@ -17,6 +20,10 @@ ADS/LeetCode/BestTimetoBuySellStock/*/
 ADS/LeetCode/BestTimetoBuySellStock/BestTimetoBuySellStock.vcxproj.user
 ADS/LeetCode/LinkedListCycle/*/
 ADS/LeetCode/LinkedListCycle/LinkedListCycle.vcxproj.user
+ADS/LeetCode/Permutations/Permutations/*/
+ADS/LeetCode/Permutations/Permutations.vcxproj.user
+ADS/LeetCode/Permutations/x64/*/
+ADS/LeetCode/Permutations/.vs/*/
 OOP/Inheritance/*/
 OOP/Polymorphism/*/
 OOP/PointersReferences/*/
@@ -24,6 +31,7 @@ PointersReferences/*/
 */.vcxproj.user
 ADS/LinkedLists/*/
 ADS/LinkedLists/LinkedLists.vcxproj.user
+
 TemplateMetaProg/*/
 TemplateMetaProg/TemplateMetaProg.vcxproj.user
 
