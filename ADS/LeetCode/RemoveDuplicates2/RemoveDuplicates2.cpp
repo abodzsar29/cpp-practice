@@ -47,7 +47,7 @@ public:
     int removeDuplicatesII(vector<int>& nums) {
         int j = 1;  // Must have value of 1 as minimum due to constraint: 1 <= nums.length
         for (int i = 1; i < nums.size(); i++) {
-            if (j == 1 || nums[i] != nums[j - 2]) {  // Because there is a gap of 2 elements in coniditional, 
+            if (j == 1 || nums[i] != nums[j - 2]) {  // Because there is a gap of 2 elements in conditional, 
                 nums[j++] = nums[i];                // original order of integers is kept
             }
         }
