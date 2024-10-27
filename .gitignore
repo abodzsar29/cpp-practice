@@ -10,6 +10,7 @@ ADS/SearchingAlgos/BinarySearch/binarysearch.dSYM
 ADS/SearchingAlgos/JumpSearch/jumpsearch.dSYM
 ADS/SearchingAlgos/LinearSearch/linearsearch.dSYM
 ADS/Arrays/arrays.dSYM
+
 ADS/LeetCode/MajorityElement/*/
 ADS/LeetCode/MergeSortedArray/*/
 ADS/LeetCode/RemoveDuplicates2/*/
@@ -24,6 +25,9 @@ ADS/LeetCode/Permutations/Permutations/*/
 ADS/LeetCode/Permutations/Permutations.vcxproj.user
 ADS/LeetCode/Permutations/x64/*/
 ADS/LeetCode/Permutations/.vs/*/
+ADS/LeetCode/WordLadder/.vs/*/
+ADS/LeetCode/WordLadder/WordLadder.vcxproj.user
+
 OOP/Inheritance/*/
 OOP/Polymorphism/*/
 OOP/PointersReferences/*/
