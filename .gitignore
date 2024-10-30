@@ -29,6 +29,10 @@ ADS/LeetCode/Permutations/x64/*/
 ADS/LeetCode/Permutations/.vs/*/
 ADS/LeetCode/WordLadder/.vs/*/
 ADS/LeetCode/WordLadder/WordLadder.vcxproj.user
+ADS/LeetCode/JumpGame/.vs/*/
+ADS/LeetCode/JumpGame/JumpGame/*/
+ADS/LeetCode/JumpGame/JumpGame.vcxproj.user
+ADS/LeetCode/JumpGame/x64/*/
 
 OOP/Inheritance/*/
 OOP/Polymorphism/*/
