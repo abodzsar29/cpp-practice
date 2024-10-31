@@ -34,6 +34,11 @@ ADS/LeetCode/JumpGame/JumpGame/*/
 ADS/LeetCode/JumpGame/JumpGame.vcxproj.user
 ADS/LeetCode/JumpGame/x64/*/
 
+ADS/LeetCode/JumpGame2/.vs/*/
+ADS/LeetCode/JumpGame2/JumpGame2/*/
+ADS/LeetCode/JumpGame2/JumpGame2.vcxproj.user
+ADS/LeetCode/JumpGame2/x64/*/
+
 OOP/Inheritance/*/
 OOP/Polymorphism/*/
 OOP/PointersReferences/*/
