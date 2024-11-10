@@ -9,7 +9,13 @@
 ADS/SearchingAlgos/BinarySearch/binarysearch.dSYM
 ADS/SearchingAlgos/JumpSearch/jumpsearch.dSYM
 ADS/SearchingAlgos/LinearSearch/linearsearch.dSYM
+
 ADS/Arrays/arrays.dSYM
+ADS/Arrays/.vs/*
+ADS/Arrays/Arrays.vcxproj.user
+ADS/Arrays/Arrays/*
+ADS/Arrays/arrays
+ADS/Arrays/x64/*
 
 ADS/LeetCode/MajorityElement/*/
 ADS/LeetCode/MergeSortedArray/*/
