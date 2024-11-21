@@ -2,7 +2,51 @@
 #include <vector>
 using namespace std;
 
-//For prefix sum questions:
+static int twoPointerRemoveDupes(vector<int>& nums) {
+    // For Edge Cases
+    if (nums.size() == 0) {
+        return 0;
+    }
+
+    // Initialise Attributes
+    int left = 0;
+    
+    for (int right = 1; right < nums.size(); ++right) {
+        if (nums[right] != nums[left]) {
+            ++left;
+            nums[left] = nums[right];
+        }
+    }
+    
+    return left + 1;
+}
+
+int prefixSumArray(int l, int r) {
+    int baseArray[8] = { 2, 4, 6, 8, 10, 12, 14, 16 };
+    int sumArray[8] = { 0 };
+    sumArray[0] = baseArray[0];
+    for (int i = 1; i < 8; i++) {
+        sumArray[i] = sumArray[i - 1] + baseArray[i];
+    }
+
+    // Display original array and prefix sum array
+    cout << "Original array: ";
+    for (int num : baseArray) {
+        cout << num << " ";
+    }
+    cout << "\nPrefix sum array: ";
+    for (int sum : sumArray) {
+        cout << sum << " ";
+    }
+    cout << endl;
+    cout << "The sum of the subarray between elements " << l << " and " << r << " (inclusive) is: ";
+    if (l == 0) {
+        return sumArray[r];
+    }
+    else {
+        return sumArray[r] - sumArray[l - 1];
+    }
+};
 
 
 
@@ -89,7 +133,7 @@ int main() {
     cout << endl << endl;
 
     cout << "Dynamic Multi-dimensional arrays: " << endl;
-    int** dynamicMDArray = new int*[3];
+    int** dynamicMDArray = new int* [3];
 
     for (int i = 0; i < 3; ++i) {
         dynamicMDArray[i] = new int[3];
@@ -118,8 +162,20 @@ int main() {
 
     cout << endl << endl;
 
-    // Prefix sum:
+    // Prefix Sum & Range Sum Problems Solution:
+    cout << prefixSumArray(1,4);
+
+    cout << endl;
+    // Two Pointer Pattern:
+    vector<int> nums = { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
+    int nuOfDiffNums = twoPointerRemoveDupes(nums);
+    cout << "Number of unique elements in nums array: " << nuOfDiffNums <<  ", these are: " << endl;
+    for (int i = 0; i < nuOfDiffNums; ++i) {
+        cout << nums[i] << " ";
+    };
+    cout << endl;
 
 
+    // Sliding Window Pattern:
     return 0;
 }
