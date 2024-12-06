@@ -40,6 +40,15 @@ ADS/LeetCode/JumpGame/JumpGame/*/
 ADS/LeetCode/JumpGame/JumpGame.vcxproj.user
 ADS/LeetCode/JumpGame/x64/*/
 
+ADS/LeetCode/LongestSubstringWRC/.vs/*
+ADS/LeetCode/LongestSubstringWRC/x64/*
+ADS/LeetCode/LongestSubstringWRC/LongestS.c5f428a6/*/
+ADS/LeetCode/LongestSubstringWRC/LongestSubstringWRC.vcxproj.user
+
+ADS/LeetCode/ValidPalindrome/.vs/*
+ADS/LeetCode/ValidPalindrome/x64/*
+ADS/LeetCode/ValidPalindrome/ValidPalindrome.vcxproj.user
+
 ADS/LeetCode/JumpGame2/.vs/*/
 ADS/LeetCode/JumpGame2/JumpGame2/*/
 ADS/LeetCode/JumpGame2/JumpGame2.vcxproj.user
