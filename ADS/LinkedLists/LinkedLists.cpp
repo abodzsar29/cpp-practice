@@ -23,7 +23,7 @@ public:
 };
 
 // Outputting the data attribute of the Node
-static void iterate(SNode* n) {
+static void SNiterate(SNode* n) {
 	while (n != nullptr) {
 		std::cout << n->data << " ";
 		n = n->next;
@@ -31,7 +31,7 @@ static void iterate(SNode* n) {
 }
 
 //Push Node to the start of the list as head
-static void pushAsHead(SNode*& head, int val) {
+static void SNpushAsHead(SNode*& head, int val) {
 	SNode* newNode = new SNode();
 	newNode->data = val;
 	newNode->next = head;
@@ -39,7 +39,7 @@ static void pushAsHead(SNode*& head, int val) {
 }
 
 //Push Node to the end of the list as tail
-static void pushToTail(SNode*& head, int val) {
+static void SNpushToTail(SNode*& head, int val) {
 	SNode* newNode = new SNode();
 	newNode->data = val;
 
@@ -60,7 +60,7 @@ static void pushToTail(SNode*& head, int val) {
 }
 
 // Inserting after a specific Node with a direct pointer to it in prev_node
-static void insertAfter(SNode*& prev_node, int new_data) {
+static void SNinsertAfter(SNode*& prev_node, int new_data) {
 	if (prev_node == nullptr) {
 		std::cout << "The given previous node cannot be NULL" << std::endl;
 		return;
@@ -76,7 +76,7 @@ static void insertAfter(SNode*& prev_node, int new_data) {
 }
 
 //Inserting after required Node, without having an already existing pointer to it
-static void insertAtPosition(SNode*& head, int position, int data) {
+static void SNinsertAtPosition(SNode*& head, int position, int data) {
 	if (position < 0) {
 		std::cout << "Position must be >= 0." << std::endl;
 		return;
@@ -112,57 +112,212 @@ static void insertAtPosition(SNode*& head, int position, int data) {
 /////////////////////////////////////////////////////////////////////////
 
 
+// Doubly Linked List Node:
+
+class DNode {
+public:
+	int data;
+	DNode* next;
+	DNode* prev;
+
+};
+
+static void DNpushAsHead(DNode*& head, int data) {
+	DNode* second = new DNode();
+	second->data = data;
+	if (head == nullptr) {
+		head = second;
+		second->next = nullptr;
+		second->prev = nullptr;
+		return;
+	}
+
+	head->prev = second;
+	second->next = head;
+	second->prev = nullptr;
+	head = second;
+}
+
+static void DNpushAsTail(DNode*& head, int data) {
+	DNode* newNode = new DNode();
+	newNode->data = data;
+
+	if (head == nullptr) {
+		head = newNode;
+		newNode->next = nullptr;
+		newNode->prev = nullptr;
+		return;
+	}
+
+	//Iterate:
+	DNode* temp = head;
+	while (temp->next != nullptr) {
+		temp = temp->next;
+	}
+	temp->next = newNode;
+	newNode->prev = temp;
+	newNode->next = nullptr;
+}
+
+static void DNpushToPosition(DNode*& head, int pos, int data) {
+	DNode* newNode = new DNode();
+	newNode->data = data;
+	if (pos == 1) {
+		newNode->next = head;
+		newNode->prev = nullptr;
+
+		if (head != nullptr) {
+			head->prev = newNode;
+		}
+		head = newNode;
+		return;
+	}
+	if (pos <= 0) {
+		std::cout << "The position int cannot be 0 or smaller" << std::endl;
+		return;
+	}
+	
+	if (head == nullptr) {  // Edge case for empty list
+		head = newNode;
+		newNode->next = nullptr;
+		newNode->prev = nullptr;
+		return;
+	}
+	
+	int sizeCount = 1;  // Edge case for when pos bigger than list
+	DNode* sizeNode = head;
+	while (sizeNode->next != nullptr) {
+		sizeCount += 1;
+		sizeNode = sizeNode->next;
+	}
+	if (pos > sizeCount + 1) {
+		std::cout << "The position for insertion is too big. The max is: " << sizeCount + 1 << std::endl;
+		return;
+	}
+
+	DNode* temp = head;
+	for (int x = 2; x < pos; ++x) { // Ensure temp doesn't become nullptr
+		temp = temp->next;
+	}
+
+	newNode->next = temp->next;
+	if (temp->next != nullptr) {
+		temp->next->prev = newNode;
+	}
+	temp->next = newNode;
+	newNode->prev = temp;
+}
 
 int main() {
-
+	std::cout << "##################################################" << std::endl;
+	std::cout << "Singly Linked List objects:" << std::endl;
 	//Initialisation of the SNode class attributes
-	SNode* head = new SNode();
-	SNode* second = new SNode();
-	SNode* third = new SNode();
+	SNode* SNhead = new SNode();
+	SNode* SNsecond = new SNode();
+	SNode* SNthird = new SNode();
 
-	head->data = 1;
-	second->data = 2;
-	third->data = 3;
+	SNhead->data = 1;
+	SNsecond->data = 2;
+	SNthird->data = 3;
 
-	head->next = second;
-	second->next = third;
-	third->next = nullptr;
+	SNhead->next = SNsecond;
+	SNsecond->next = SNthird;
+	SNthird->next = nullptr;
 
 	// Outputting the data attribute of the Node
 	std::cout << "Linked List with initial values: ";
-	iterate(head);
+	SNiterate(SNhead);
 	std::cout << std::endl;
 
 	// Pushing to the start of the list
 	std::cout << "Pushing 11 as the head of the list: ";
-	pushAsHead(head, 11);
-	iterate(head);
+	SNpushAsHead(SNhead, 11);
+	SNiterate(SNhead);
 	std::cout << std::endl;
 
 	std::cout << "Pushing 99 as tail of the list: ";
-	pushToTail(head, 99);
-	iterate(head);
+	SNpushToTail(SNhead, 99);
+	SNiterate(SNhead);
 	std::cout << std::endl;
 
 	std::cout << "Inserting 69 after the second value: ";
-	insertAfter(second, 69);
-	iterate(head);
+	SNinsertAfter(SNsecond, 69);
+	SNiterate(SNhead);
 	std::cout << std::endl;
 
 	std::cout << "Inserting 999 into the 5th position: ";
-	insertAtPosition(head, 5, 999);
-	iterate(head);
+	SNinsertAtPosition(SNhead, 5, 999);
+	SNiterate(SNhead);
 
 	// Cleaning up memory
+	while (SNhead != nullptr) {
+		SNode* SNtemp = SNhead;
+		SNhead = SNhead->next;
+		delete SNtemp;
+	}
+	
+	std::cout << std::endl << std::endl;
+	std::cout << "##################################################" << std::endl;
+	std::cout << "Doubly Linked List objects:" << std::endl;
+	/////////////////////////////////////////////////////////////////////////
+	DNode* head = nullptr; // Initialize an empty doubly linked list
+
+	// Test DNpushAsHead
+	std::cout << "Pushing 10 as the head of the list, then 20 & 30:" << std::endl;
+	DNpushAsHead(head, 10); // List: 10
+	DNpushAsHead(head, 20); // List: 20 -> 10
+	DNpushAsHead(head, 30); // List: 30 -> 20 -> 10
+
+	// Display the list
+	DNode* temp = head;
+	std::cout << "Current List after pushing to head: ";
+	while (temp != nullptr) {
+		std::cout << temp->data << " ";
+		temp = temp->next;
+	}
+	std::cout << std::endl;
+
+	// Test DNpushAsTail
+	std::cout << "Pushing 40 and 50 as the tail of the list:" << std::endl;
+	DNpushAsTail(head, 40); // List: 30 -> 20 -> 10 -> 40
+	DNpushAsTail(head, 50); // List: 30 -> 20 -> 10 -> 40 -> 50
+
+	// Display the list
+	temp = head;
+	std::cout << "Current List after pushing to tail: ";
+	while (temp != nullptr) {
+		std::cout << temp->data << " ";
+		temp = temp->next;
+	}
+	std::cout << std::endl;
+
+	// Test DNpushToPosition
+	std::cout << "Inserting 25 at position 2:" << std::endl;
+	DNpushToPosition(head, 2, 25); // List: 30 -> 25 -> 20 -> 10 -> 40 -> 50
+
+	std::cout << "Inserting 15 at position 5:" << std::endl;
+	DNpushToPosition(head, 5, 15); // List: 30 -> 25 -> 20 -> 10 -> 15 -> 40 -> 50
+
+	std::cout << "Inserting 5 at position 1 (new head):" << std::endl;
+	DNpushToPosition(head, 1, 5); // List: 5 -> 30 -> 25 -> 20 -> 10 -> 15 -> 40 -> 50
+
+	// Display the list
+	temp = head;
+	std::cout << "Final List after pushing to specific positions: ";
+	while (temp != nullptr) {
+		std::cout << temp->data << " ";
+		temp = temp->next;
+	}
+	std::cout << std::endl;
+
+	// Cleanup: Free the allocated memory
 	while (head != nullptr) {
-		SNode* temp = head;
+		temp = head;
 		head = head->next;
 		delete temp;
 	}
-	
 
-	/////////////////////////////////////////////////////////////////////////
-
-
+	std::cout << "Memory cleaned up. Exiting program." << std::endl;
 	return 0;
 }
+
