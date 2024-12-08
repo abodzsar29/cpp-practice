@@ -32,7 +32,7 @@ public:
     }
 };
 
-// Approach 2: Two Pointer Approach
+// Approach 2: Fast and Slow Pointer Approach
 class Solution {
 public:
     bool hasCycle(ListNode* head) {
