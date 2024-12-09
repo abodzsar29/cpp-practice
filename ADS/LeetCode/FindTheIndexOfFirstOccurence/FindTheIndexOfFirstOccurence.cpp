@@ -58,7 +58,7 @@ public:
 //Solution 3: Recursive Solution
 class Solution {
 public:
-    int strStr(string haystack, string needle) {
+    int strStr(std::string haystack, std::string needle) {
         // Helper function to perform recursive search
         return findSubstring(haystack, needle, 0);
     }

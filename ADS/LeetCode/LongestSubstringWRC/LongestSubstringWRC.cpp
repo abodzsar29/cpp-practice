@@ -29,7 +29,6 @@ public:
             charSet.insert(s[end]);
             // Update the maximum length of the substring
             maxLength = std::max(maxLength, end - start + 1);
-            std::cout << std::endl;
         }
 
         return maxLength;
