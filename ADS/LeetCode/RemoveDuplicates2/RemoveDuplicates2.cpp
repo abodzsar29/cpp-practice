@@ -35,14 +35,14 @@ public:
 };
 */
 
-// Approach 2:
+// Approach 2: Beats 67.64% as of 10.12.24
 /*
 - The variable j is used to keep track of the current position in the modified array where elements are being stored without violating the constraint.
 - The loop iterates through the array, and for each element, it checks whether it is the same as the element two positions behind the current j. 
 If it is, it means there are already two occurrences of this element in the modified array, and we should skip adding another one to adhere to the constraint. 
 Otherwise, the element is added to the modified array at position j, and j is incremented.
 */
-class Solution {
+class Solution2 {
 public:
     int removeDuplicatesII(vector<int>& nums) {
         int j = 1;  // Must have value of 1 as minimum due to constraint: 1 <= nums.length
@@ -52,6 +52,24 @@ public:
             }
         }
         return j;
+    }
+};
+
+//Approach 3:
+class Solution3 {
+public:
+    int removeDuplicatesII(vector<int>& nums) {
+        int count = 0;
+        for(int i=0; i<nums.size()-1; i++)
+        {
+            if(nums[i]==nums[i+1])
+            {
+                if(count>=1) nums.erase(nums.begin()+i--);
+                else count++;
+            }
+            else count = 0;
+        }
+        return nums.size();
     }
 };
 
