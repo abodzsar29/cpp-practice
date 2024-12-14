@@ -35,7 +35,7 @@ public:
 };
 
 int main() {
-    std::vector<int> nums = { 2, 3, -2, 4 }; // Example input
+    std::vector<int> nums = { -2, 3, -2, 4, 6, 3, 2, 1, -4 }; // Example input
 
     try {
         Solution solution;

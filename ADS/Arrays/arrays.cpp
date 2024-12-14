@@ -40,7 +40,7 @@ int prefixSumArray(int l, int r) {
         cout << sum << " ";
     }
     cout << endl;
-    cout << "The sum of the subarray between elements " << l << " and " << r << " (inclusive) is: ";
+    cout << "The sum of the subarray between elements " << l << " (inclusive) and " << r << " (inclusive) is: ";
     if (l == 0) {
         return sumArray[r];
     }
