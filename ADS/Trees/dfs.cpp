@@ -69,22 +69,22 @@ public:
 }
 
 /* In-order Depth-First Search Traversal - Recursive solution*/
-    void inorderHelper(TreeNode* node, vector<int>& result) {
+    void inorderHelper(TreeNode* node, std::vector<int>& result) {
         if (!node) return;
         inorderHelper(node->left, result);
         result.push_back(node->val);
         inorderHelper(node->right, result);
     }
 
-    vector<int> inorder() {
-        vector<int> result;
+    std::vector<int> inorder(TreeNode* root) {
+        std::vector<int> result;
         inorderHelper(root, result);
         return result;
     }
 
 /* In-order Depth-First Search Traversal - Iterative solution using a Stack*/
     
-    vector<int> inorderTraversal(TreeNode* root) {
+    std::vector<int> inorderTraversal(TreeNode* root) {
       std::vector<int> result;
       std::stack<TreeNode*> myStack;
       TreeNode* currentNode = root;
@@ -108,7 +108,7 @@ public:
 
 /* Post-order Depth-First Search Traversal - Recursive solution*/
 
-    void postorderHelper(TreeNode* node, vector<int>& result) {
+    void postorderHelper(TreeNode* node, std::vector<int>& result) {
         if (!node) return;
         postorderHelper(node->left, result);
         postorderHelper(node->right, result);
@@ -116,17 +116,17 @@ public:
     }
 
 
-    vector<int> postorder() {
-        vector<int> result;
+    std::vector<int> postorder() {
+        std::vector<int> result;
         postorderHelper(root, result);
         return result;
     }
 
 
 /* Post-order Depth-First Search Traversal - Iterative solution using 1 Stack*/
-    vector<int> postOrderOneStack(TreeNode* root) {
-        stack<int> myStack;
-        vector<int> result;
+    std::vector<int> postOrderOneStack(TreeNode* root) {
+        std::stack<TreeNode*> myStack;
+        std::vector<int> result;
         TreeNode* lastVisited = nullptr;
 
         while(root || !myStack.empty()) {
@@ -151,10 +151,10 @@ public:
 
 
 /* Post-order Depth-First Search Traversal - Iterative solution using 2 Stacks*/
-    vector<int> postOrderTwoStacks(TreeNode* root) {
-        stack<TreeNode*> stackOne;
-        stack<TreeNode*> stackTwo;
-        vector<int> result;
+    std::vector<int> postOrderTwoStacks(TreeNode* root) {
+        std::stack<TreeNode*> stackOne;
+        std::stack<TreeNode*> stackTwo;
+        std::vector<int> result;
         if (!root) return result;
         stackOne.push(root);
         TreeNode* currentNode = root;
@@ -173,7 +173,7 @@ public:
         }
 
         while(!stackTwo.empty()) {
-            result.push_back(stackTwo.top())->val;
+            result.push_back(stackTwo.top()->val);
             stackTwo.pop();
         }
         return result;

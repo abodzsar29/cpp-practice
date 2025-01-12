@@ -35,7 +35,7 @@ public:
     TreeNode* getRoot() { return root;};
 
 /* Post-order Depth-First Search Traversal - Recursive solution*/
-    void postOrderHelper(TreeNode* node, vetor<int> result) {
+    void postOrderHelper(TreeNode* node, std::vector<int> result) {
         if (!node) return;
         postOrderHelper(node->left, result);
         postOrderHelper(node->right, result);
@@ -43,8 +43,8 @@ public:
     }
 
 
-    vector<int> postOrder(TreeNode* root) {
-        vector<int> result;
+    std::vector<int> postOrder(TreeNode* root) {
+        std::vector<int> result;
         postOrderHelper(root, result);
         return result;
     }
@@ -52,9 +52,9 @@ public:
 
 
 /* Post-order Depth-First Search Traversal - Iterative solution using 1 Stack*/
-    vector<int> postOrderOneStack(TreeNode* root) {
-        stack<int> myStack;
-        vector<int> result;
+    std::vector<int> postOrderOneStack(TreeNode* root) {
+        std::stack<TreeNode*> myStack;
+        std::vector<int> result;
         TreeNode* lastVisited = nullptr;
 
         while(root || !myStack.empty()) {
@@ -75,14 +75,14 @@ public:
             }
         }
         return result;
-    }
+    };
 
 
 /* Post-order Depth-First Search Traversal - Iterative solution using 2 Stacks*/
-    vector<int> postOrderTwoStacks(TreeNode* root) {
-        stack<TreeNode*> stackOne;
-        stack<TreeNode*> stackTwo;
-        vector<int> result;
+    std::vector<int> postOrderTwoStacks(TreeNode* root) {
+        std::stack<TreeNode*> stackOne;
+        std::stack<TreeNode*> stackTwo;
+        std::vector<int> result;
         if (!root) return result;
         stackOne.push(root);
         TreeNode* currentNode = root;
@@ -101,13 +101,13 @@ public:
         }
 
         while(!stackTwo.empty()) {
-            result.push_back(stackTwo.top())->val;
+            result.push_back(stackTwo.top()->val);
             stackTwo.pop();
         }
         return result;
     };
 
-}
+};
 
 
 
