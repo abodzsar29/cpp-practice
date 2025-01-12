@@ -34,93 +34,21 @@ public:
 
     TreeNode* getRoot() { return root;};
 
-/* Pre-order Depth-First Search Traversal - Recursive solution*/
-    void preorderHelper(TreeNode* node, std::vector<int>& result) {
-        if (!node) return;
-        result.push_back(node->val);
-        preorderHelper(node->left, result);
-        preorderHelper(node->right, result);
-    }
-
-    std::vector<int> preorder() {
-        std::vector<int> result;
-        preorderHelper(root, result);
-        return result;
-    };
-
-/* Pre-order Depth-First Search Traversal - Iterative solution using a Stack*/
-    std::vector<int> preOrderIterative(TreeNode* root) {
-      std::vector<int> result = {};
-      if (!root) return result;
-      std::stack<TreeNode*> myStack;
-      myStack.push(root);
-      while(!myStack.empty()) {
-          TreeNode* node = myStack.top();
-          result.push_back(node->val);
-          myStack.pop();
-          if (node->right) {
-              myStack.push(node->right);
-          }
-          if (node->left) {
-              myStack.push(node->left);
-          }
-      }
-      return result;
-}
-
-/* In-order Depth-First Search Traversal - Recursive solution*/
-    void inorderHelper(TreeNode* node, vector<int>& result) {
-        if (!node) return;
-        inorderHelper(node->left, result);
-        result.push_back(node->val);
-        inorderHelper(node->right, result);
-    }
-
-    vector<int> inorder() {
-        vector<int> result;
-        inorderHelper(root, result);
-        return result;
-    }
-
-/* In-order Depth-First Search Traversal - Iterative solution using a Stack*/
-    
-    vector<int> inorderTraversal(TreeNode* root) {
-      std::vector<int> result;
-      std::stack<TreeNode*> myStack;
-      TreeNode* currentNode = root;
-      
-      while (currentNode || !myStack.empty()) {
-          // Go as far left as possible
-          while (currentNode) {
-              myStack.push(currentNode);
-              currentNode = currentNode->left;
-          };
-          
-          // Process current node and go right
-          currentNode = myStack.top();
-          myStack.pop();
-          result.push_back(currentNode->val);
-          currentNode = currentNode->right;
-      }
-      
-      return result;
-    }
-
 /* Post-order Depth-First Search Traversal - Recursive solution*/
-
-    void postorderHelper(TreeNode* node, vector<int>& result) {
+    void postOrderHelper(TreeNode* node, vetor<int> result) {
         if (!node) return;
-        postorderHelper(node->left, result);
-        postorderHelper(node->right, result);
+        postOrderHelper(node->left, result);
+        postOrderHelper(node->right, result);
         result.push_back(node->val);
     }
 
 
-    vector<int> postorder() {
+    vector<int> postOrder(TreeNode* root) {
         vector<int> result;
-        postorderHelper(root, result);
+        postOrderHelper(root, result);
         return result;
     }
+
 
 
 /* Post-order Depth-First Search Traversal - Iterative solution using 1 Stack*/
@@ -179,7 +107,7 @@ public:
         return result;
     };
 
-};
+}
 
 
 
@@ -190,4 +118,5 @@ int main() {
 
   return 0;
 } 
+
 
