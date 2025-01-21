@@ -27,7 +27,7 @@ This makes the solution utilising sets have the better time complexity, however:
 */
 
 
-
+// Beats 88.74% of LeetCode submissions as of 21/1/25
 class SolutionSet {
 public:
     std::vector<std::vector<int>> findDifference(std::vector<int>& nums1, std::vector<int>& nums2) {
@@ -55,6 +55,7 @@ public:
     }
 };
 
+
 class SolutionTwoPointer {
 public:
     std::vector<std::vector<int>> findDifference(std::vector<int>& nums1, std::vector<int>& nums2) {
@@ -69,6 +70,7 @@ public:
         nums1.erase(std::unique(nums1.begin(), nums1.end()), nums1.end());
         // Remove duplicates from nums2
         nums2.erase(std::unique(nums2.begin(), nums2.end()), nums2.end());
+       
         
         // Use two pointers to compare elements
         while(i < nums1.size() && j < nums2.size()) {
@@ -138,8 +140,8 @@ int main() {
     printResult(result2);
     
     // Test case 2
-    nums1 = {1, 2, 3, 3};
-    nums2 = {2, 4, 6, 2};
+    nums1 = {9, 6, 4, 5};
+    nums2 = {4, 3, 2, 9};
   
     std::cout << "Test Case 2:\n";
     std::cout << "Set Solution:\n";
@@ -147,8 +149,8 @@ int main() {
     printResult(result1);
     
     // Reset arrays
-    nums1 = {1, 2, 3, 3};
-    nums2 = {2, 4, 6, 2};
+    nums1 = {9, 6, 4, 5};
+    nums2 = {4, 3, 2, 9};
   
     std::cout << "Two Pointer Solution:\n";
     result2 = sol2.findDifference(nums1, nums2);
