@@ -3,6 +3,31 @@
 #include <unordered_set>
 #include <algorithm>
 
+
+
+/*
+This is the solution for the problem "Find the Difference of Two Arrays", classed "Easy" on LeetCode. It is found under:
+https://leetcode.com/problems/find-the-difference-of-two-arrays/description/
+
+The first solution below uses sets, while the second uses the Two Pointer approach.
+
+For the solution utilising sets:
+Time Complexity: O(n + m) where n and m are lengths of nums1 and nums2
+Space Complexity: O(n + m) where n and m are lengths of nums1 and nums2
+
+For the solution utilising the two pointer approach:
+Time Complexity: O(n log n + m log m) where n and m are lengths of nums1 and nums2
+Space Complexity: O(1) excluding the output array
+
+This makes the solution utilising sets have the better time complexity, however:
+- For small arrays, the Two Pointer solution might be faster due to better cache locality
+- The Set Solution uses more space
+- Set operations have higher constant factors due to hash computations
+
+*/
+
+
+
 class SolutionSet {
 public:
     std::vector<std::vector<int>> findDifference(std::vector<int>& nums1, std::vector<int>& nums2) {
@@ -78,6 +103,7 @@ public:
 };
 
 // Helper function to print vectors
+
 void printResult(const std::vector<std::vector<int>>& result) {
     std::cout << "First array unique elements: ";
     for(int num : result[0]) {
@@ -112,18 +138,18 @@ int main() {
     printResult(result2);
     
     // Test case 2
-    nums1 = {1, 1, 1, 2, 2};
-    nums2 = {1, 1, 1, 2, 2};
-    
+    nums1 = {1, 2, 3, 3};
+    nums2 = {2, 4, 6, 2};
+  
     std::cout << "Test Case 2:\n";
     std::cout << "Set Solution:\n";
     result1 = sol1.findDifference(nums1, nums2);
     printResult(result1);
     
     // Reset arrays
-    nums1 = {1, 1, 1, 2, 2};
-    nums2 = {1, 1, 1, 2, 2};
-    
+    nums1 = {1, 2, 3, 3};
+    nums2 = {2, 4, 6, 2};
+  
     std::cout << "Two Pointer Solution:\n";
     result2 = sol2.findDifference(nums1, nums2);
     printResult(result2);
