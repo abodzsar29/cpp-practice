@@ -50,22 +50,22 @@ public:
 
 /* Pre-order Depth-First Search Traversal - Iterative solution using a Stack*/
     std::vector<int> preOrderIterative(TreeNode* root) {
-      std::vector<int> result = {};
-      if (!root) return result;
-      std::stack<TreeNode*> myStack;
-      myStack.push(root);
-      while(!myStack.empty()) {
-          TreeNode* node = myStack.top();
-          result.push_back(node->val);
-          myStack.pop();
-          if (node->right) {
-              myStack.push(node->right);
-          }
-          if (node->left) {
-              myStack.push(node->left);
-          }
-      }
-      return result;
+        std::vector<int> result = {};
+        if (!root) return result;
+        std::stack<TreeNode*> myStack;
+        myStack.push(root);
+        while(!myStack.empty()) {
+            TreeNode* node = myStack.top();
+            result.push_back(node->val);
+            myStack.pop();
+            if (node->right) {
+                myStack.push(node->right);
+            }
+            if (node->left) {
+                myStack.push(node->left);
+            }
+        }
+        return result;
 }
 
 /* In-order Depth-First Search Traversal - Recursive solution*/
