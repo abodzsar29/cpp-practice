@@ -18,35 +18,28 @@ Time Complexity: O(n * m)
 Space Complexity: O(1) excluding result array, where n = nums1.size(), m = nums2.size()
 */
 
-
 class Solution {
 public:
-    // Solution 1: Using Stack and HashMap
-    vector<int> nextGreaterElement1(vector<int>& nums1, vector<int>& nums2) {
-        unordered_map<int, int> map;
-        stack<int> st;
-        
-        for(int num : nums2) {
-            while(!st.empty() && st.top() < num) {
-                map[st.top()] = num;
-                st.pop();
-            }
-            st.push(num);
-        }
-        
-        while(!st.empty()) {
-            map[st.top()] = -1;
-            st.pop();
-        }
-        
-        vector<int> result(nums1.size());
-        for(int i = 0; i < nums1.size(); i++) {
-            result[i] = map[nums1[i]];
-        }
-        
-        return result;
-    }
-    
+   vector<int> nextGreaterElement1(vector<int>& nums1, vector<int>& nums2) {
+       stack<int> st;
+       unordered_map<int, int> map; // value -> next greater
+       
+       for(int num : nums2) {
+           while(!st.empty() && st.top() < num) {
+               map[st.top()] = num;
+               st.pop();
+           }
+           st.push(num);
+       }
+       
+       vector<int> result;
+       for(int num : nums1) {
+           result.push_back(map.count(num) ? map[num] : -1);
+       }
+       
+       return result;
+   }
+
     // Solution 2: Two Pointer Approach
     vector<int> nextGreaterElement2(vector<int>& nums1, vector<int>& nums2) {
         vector<int> result(nums1.size());
