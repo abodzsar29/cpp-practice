@@ -18,6 +18,7 @@ struct ListNode {
 	ListNode(int x, ListNode* next) : val(x), next(next) {}
 };
 
+
 ListNode* reverseList(ListNode* head) {
 	ListNode* prev = nullptr;
 	ListNode* current = head;
