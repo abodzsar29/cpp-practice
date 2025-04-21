@@ -19,41 +19,24 @@ It uses the Greedy algorithm approach:
 Time Complexity: O(n log n), where n is the number of intervals. The sorting operation takes O(n log n) time.
 Space Complexity: O(n) for storing the result array.
 */
-
-// Define the Solution class
+ 
 class Solution {
 public:
-    std::vector<std::vector<int>> merge(std::vector<std::vector<int>>& intervals) {
-        std::vector<std::vector<int>> ans;
-        
-        // Sort intervals by their start times
-        sort(begin(intervals), end(intervals));
-        
-        // Initialize reference points from the first interval
-        int a = intervals[0][0], b = intervals[0][1];
-        
-        // Iterate through all intervals
-        for(auto v : intervals) {
-            // If current interval starts after reference ends, no overlap
-            if(v[0] > b) {
-                // Add the reference interval to result
-                ans.push_back({a, b});
-                // Update reference to current interval
-                a = v[0];
-                b = v[1];
-            }
-            // If current interval extends the reference, update end point
-            else if(v[1] > b) {
-                b = v[1];
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        sort(intervals.begin(),intervals.end());
+        int n = intervals.size();
+        vector<vector<int>> ans;
+        for(int i = 0;i < n ;i++){
+            if(ans.empty() || ans.back()[1] < intervals[i][0]){
+                ans.push_back(intervals[i]);
+            }else{
+                ans.back()[1] = max(ans.back()[1] , intervals[i][1]);
             }
         }
-        
-        // Add the last merged interval
-        ans.push_back({a, b});
-        
         return ans;
     }
 };
+
 
 int main() {
     // Create an instance of the Solution class
