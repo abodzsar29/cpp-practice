@@ -27,6 +27,26 @@ public:
         preOrderHelper(root->left, result);
         preOrderHelper(root->right, result);
     }
+
+    vector<int> iterativePreOrderTraversal(TreeNode* root) {
+        vector<int> result;
+        stack<TreeNode*> myStack;
+        while (root || !myStack.empty()) {
+            if (root) {
+                result.push_back(root -> val);
+                if (root -> right) {
+                    myStack.push(root -> right);
+                }
+                root = root -> left;
+            } else {
+                root = myStack.top();
+                myStack.pop();
+            }
+        }
+        return result;
+    }
+
+
 };
 
 // Function to create a sample binary tree
